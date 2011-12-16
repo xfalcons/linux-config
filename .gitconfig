@@ -14,14 +14,15 @@
     color = auto
     external = /home/$USER/git_diff_wrapper
 
+[pager]
+    diff =
+
 [color]
     diff = auto
     status = auto
     branch = auto
     ui = auto
 
-[core]
-    pager =
 
 [status]
     color = auto
