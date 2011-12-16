@@ -36,7 +36,6 @@ EDITOR='vim'
    (( count = $count + 1 ))
     done
     PR_NO_COLOR="%{$terminfo[sgr0]%}"
-PS1="[$PR_MAGENTA%n$PR_NO_COLOR@$PR_GREEN%U%m%u$PR_NO_COLOR:$PR_RED%2c$PR_NO_COLOR]%(!.#.$) "
 RPS1="$PR_MAGENTA(%D{%m-%d %H:%M})$PR_NO_COLOR"
 LC_ALL='en_US.UTF-8'
 LANG='en_US.UTF-8'
@@ -167,7 +166,7 @@ export TZ="/usr/share/zoneinfo/Asia/Taipei"
 export MAVEN_HOME=/home/m/lib/maven
 export PATH="/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:${PATH}"
 export PATH="${MAVEN_HOME}/bin:/usr/local/maven/bin:${PATH}"
-export PATH="/home/dev/${USER}/miiicasa/lib:/home/dev/${USER}/miiicasa/bin:${PATH}"
+export PATH="/home/{$USER}/bin:/home/dev/${USER}/miiicasa/lib:/home/dev/${USER}/miiicasa/bin:${PATH}"
 
 # get the name of the branch we are on
 git_prompt_info() {
@@ -177,5 +176,11 @@ git_prompt_info() {
 autoload -U colors
 colors
 setopt prompt_subst
-PROMPT='%{$fg[green]%}%n@%m %~ %{$fg[red]%}$(git_prompt_info)%{$reset_color%} %# '
 
+source ~/.git-completion
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+PS1='%{$fg[green]%}%n@%m %~ %{$fg[red]%}$(__git_ps1 "(%s)")%{$reset_color%} %# '
+#PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '

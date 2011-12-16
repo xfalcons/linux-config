@@ -24,6 +24,7 @@ ln -s .config/.zshrc .zshrc
 ln -s .config/.tmux.conf .tmux.conf
 ln -s .config/.gitconfig .gitconfig
 ln -s .config/git_diff_wrapper git_diff_wrapper
+ln -s .config/.git-completion .git-completion
 
 cd "${CONFIG_HOME}/.vim"
 git submodule update --init
