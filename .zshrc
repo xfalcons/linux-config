@@ -160,13 +160,16 @@ alias cdstatic="cd ~/miiicasa/static/";
 alias cdwww="cd ~/miiicasa/"
 alias gostatic="cd ~/miiicasa/static";
 alias nodejs="~/miiicasa/comet/node.js restart";
+alias genlang="cd ~/;php ~/miiicasa/cms/cli.php l10n/lang/script_gen;cd -;";
+alias gendoc="~/miiicasa/lib/yuidocjs/lib/cli.js -o ~/public_html/yuidocjs/ .";
+alias cdst="cd ~/miiicasa/static";
 
 # Environment Variables.
 export TZ="/usr/share/zoneinfo/Asia/Taipei"
 export MAVEN_HOME=/home/m/lib/maven
-export PATH="/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:${PATH}"
-export PATH="${MAVEN_HOME}/bin:/usr/local/maven/bin:${PATH}"
-export PATH="/home/{$USER}/bin:/home/dev/${USER}/miiicasa/lib:/home/dev/${USER}/miiicasa/bin:${PATH}"
+export PATH="/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:/home/{$USER}/bin:${PATH}"
+export PATH="/home/dev/${USER}/miiicasa/lib:/home/dev/${USER}/miiicasa/bin:${PATH}"
+export PATH="/opt/flex/bin:/opt/fdbuild:${PATH}"
 
 # get the name of the branch we are on
 git_prompt_info() {
@@ -184,3 +187,4 @@ export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 PS1='%{$fg[green]%}%n@%m %~ %{$fg[red]%}$(__git_ps1 "(%s)")%{$reset_color%} %# '
 #PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
