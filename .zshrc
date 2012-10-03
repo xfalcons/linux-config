@@ -156,13 +156,11 @@ alias goconf="cd /etc/httpd/conf.d/"
 alias gophpcs="cd /usr/share/pear/PHP/CodeSniffer";
 alias restart="sudo /etc/init.d/httpd restart"
 alias gowww="cd ~/miiicasa/"
-alias cdstatic="cd ~/miiicasa/static/";
+alias cdst="cd ~/miiicasa/static";
 alias cdwww="cd ~/miiicasa/"
 alias gostatic="cd ~/miiicasa/static";
-alias nodejs="~/miiicasa/comet/node.js restart";
 alias genlang="cd ~/;php ~/miiicasa/cms/cli.php l10n/lang/script_gen;cd -;";
-alias gendoc="~/miiicasa/lib/yuidocjs/lib/cli.js -o ~/public_html/yuidocjs/ .";
-alias cdst="cd ~/miiicasa/static";
+alias gendoc="/home/$USER/miiicasa/lib/yuidocjs/lib/cli.js -o ~/public_html/yuidocjs/ .";
 
 # Environment Variables.
 export TZ="/usr/share/zoneinfo/Asia/Taipei"
@@ -180,11 +178,15 @@ autoload -U colors
 colors
 setopt prompt_subst
 
+export DEV_ROOT=/home/dev/${USER}/
+export SITE_ENV=develop
 source ~/.git-completion
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
-PS1='%{$fg[green]%}%n@%m %~ %{$fg[red]%}$(__git_ps1 "(%s)")%{$reset_color%} %# '
+PS1='%{$fg[green]%}%n@%m %{$fg[cyan]%}%~ %{$fg[red]%}$(__git_ps1 "(%s)")%{$reset_color%}
+% > '
+#PS1='%{$fg[green]%}%n@%m %~ %{$fg[red]%}$(__git_ps1 "(%s)")%{$reset_color%} %# '
 #PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
