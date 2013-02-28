@@ -160,7 +160,11 @@ alias cdst="cd ~/miiicasa/static";
 alias cdwww="cd ~/miiicasa/"
 alias gostatic="cd ~/miiicasa/static";
 alias genlang="cd ~/;php ~/miiicasa/cms/cli.php l10n/lang/script_gen;cd -;";
+alias parselang="php ~/miiicasa/cms/cli.php l10n/l10n/update_lang_to_db";
 alias gendoc="/home/$USER/miiicasa/lib/yuidocjs/lib/cli.js -o ~/public_html/yuidocjs/ .";
+alias tarimg='tar cvzf static.tar.gz ~/miiicasa/static --exclude="*.swp" --exclude="*.js" --exclude="*.scss" --exclude="*.css" --exclude=".git*" --exclude="*.html" --exclude=".sass-cache" --exclude="lab" --exclude="*.as" --exclude="*.doc" --exclude="yui3" --exclude="yui2" --exclude="soundmanager2" --exclude="apps" --exclude="zeroclipboard" --exclude=yuidoc --exclude=lang --exclude=cmd --exclude=useradmin --exclude=lazyload --exclude="lib" --exclude="cms"';
+alias vpnrestart='sudo /root/bin/vpn-pppssh-61 start';
+alias modup="~/repos/loadules/bin/loadules.js ~/miiicasa/conf/loadules/index.js";
 
 # Environment Variables.
 export TZ="/usr/share/zoneinfo/Asia/Taipei"
@@ -168,6 +172,7 @@ export MAVEN_HOME=/home/m/lib/maven
 export PATH="/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:/home/{$USER}/bin:${PATH}"
 export PATH="/home/dev/${USER}/miiicasa/lib:/home/dev/${USER}/miiicasa/bin:${PATH}"
 export PATH="/opt/flex/bin:/opt/fdbuild:${PATH}"
+export NODE_PATH="/usr/lib/node_modules:${PATH}"
 
 # get the name of the branch we are on
 git_prompt_info() {
@@ -178,7 +183,8 @@ autoload -U colors
 colors
 setopt prompt_subst
 
-export DEV_ROOT=/home/dev/${USER}/
+export DEV_ROOT=/home/${USER}/
+# export DEV_PORT=<YOUR DEV_PORT>
 export SITE_ENV=develop
 source ~/.git-completion
 
