@@ -154,13 +154,17 @@ alias cdconf="cd /etc/httpd/conf.d/"
 alias cdphpcs="cd /usr/share/pear/PHP/CodeSniffer";
 alias goconf="cd /etc/httpd/conf.d/"
 alias gophpcs="cd /usr/share/pear/PHP/CodeSniffer";
-alias restart="sudo rc.d restart httpd"
+alias restart="sudo systemctl restart httpd "
 alias gowww="cd ~/miiicasa/"
 alias cdst="cd ~/miiicasa/static";
 alias cdwww="cd ~/miiicasa/"
 alias gostatic="cd ~/miiicasa/static";
 alias genlang="cd ~/;php ~/miiicasa/cms/cli.php l10n/lang/script_gen;cd -;";
+alias genlang2="cd ~/;php ~/miiicloud/cms/cli.php l10n/lang/script_gen;cd -;";
 alias gendoc="/home/$USER/miiicasa/lib/yuidocjs/lib/cli.js -o ~/public_html/yuidocjs/ .";
+alias parselang="php ~/miiicasa/cms/cli.php l10n/l10n/update_lang_to_db";
+alias parselang2="php ~/miiicloud/cms/cli.php l10n/l10n/update_lang_to_db";
+alias cdbiz="cd ~/miiicloud";
 
 # Environment Variables.
 export TZ="/usr/share/zoneinfo/Asia/Taipei"
