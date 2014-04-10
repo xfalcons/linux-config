@@ -1,7 +1,7 @@
 Configuration
 ==========================
 For ease of my personal configuration deployment.
-It installs miiiCasa default .vimrc, .zshrc, .gitconfig, .tmux.conf and VIM plugins.
+It installs Xfalcons default .vimrc, .bashrc, .bash_profile , .gitconfig, .tmux.conf and VIM plugins.
 
 Installation
 ------------
@@ -19,4 +19,4 @@ Backup your original configuration files if necessary.
      
 Install everything with one-line command.
 
-     wget -O - https://raw.github.com/miiicasa/linux-config/master/install.sh | sh; sh ~/.config/prompt.sh
+     wget -O - https://raw.github.com/xfalcons/linux-config/master/install.sh | sh; sh ~/.config/git_setting.sh
