@@ -15,11 +15,12 @@ die() {
 git clone https://github.com/xfalcons/linux-config.git "$CONFIG_HOME"
 
 cd ~
+[ ! -d "bin" ] && mkdir -p bin ]
 ln -s .config/.bash_profile .bash_profile
 ln -s .config/.bashrc .bashrc
 ln -s .config/.tmux.conf .tmux.conf
 ln -s .config/.gitconfig .gitconfig
-ln -s .config/git_diff_wrapper git_diff_wrapper
+ln -s .config/bin/git_diff_wrapper git_diff_wrapper
 ln -s .config/.git-completion .git-completion
 
 wget -O - https://raw.github.com/xfalcons/vimrc/master/auto-install.sh | sh
