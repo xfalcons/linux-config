@@ -12,7 +12,7 @@
 
 [diff]
     color = auto
-    external = /home/$USER/git_diff_wrapper
+    external = /home/$USER/bin/git_diff_wrapper
 
 [pager]
     diff =
