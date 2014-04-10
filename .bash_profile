@@ -38,8 +38,22 @@ if [ "$PS1" ]; then
     PS1="\[\033[0;32m\][\u@\h:\[\033[0;33m\\w\[\033[0;32m\]]$\[\033[0m\] "
 fi
 
-export LANG=zh_TW.UTF-8
-export CLICOLOR=1
+# Set ls color mode
+platform='unknown'
+unamestr=`uname -s`
+if [[ "$unamestr" == 'Linux' ]]; then
+    platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+    platform='freebsd'
+fi
+
+if [[ $platform == 'linux' ]]; then
+    alias ls='ls --color=auto'
+elif [[ $platform == 'freebsd' ]]; then
+    export CLICOLOR=1
+fi
+
+export LANG=en_US.UTF-8
 
 set meta-flag on
 set input-meta on
