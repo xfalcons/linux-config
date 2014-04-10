@@ -12,7 +12,7 @@ die() {
 
 [ -e "~/.config" ] && die "~/.config already exists."
 
-git clone git@github.com:xfalcons/linux-config.git "$CONFIG_HOME"
+git clone https://github.com/xfalcons/linux-config.git "$CONFIG_HOME"
 
 cd ~
 ln -s .config/.bash_profile .bash_profile
