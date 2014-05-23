@@ -135,13 +135,15 @@ function promptcmd () {
         if [ "${SESS_SRC}" == "(:0.0)" ]; then 
         PS1="${PS1}\[${COLOR_GREEN}\]\h "
         else 
-            local parent_process=`cat /proc/${PPID}/cmdline`
-            if [[ "$parent_process" == "in.rlogind*" ]]; then
-                PS1="${PS1}\[${COLOR_BROWN}\]\h "
-            elif [[ "$parent_process" == "in.telnetd*" ]]; then 
-                PS1="${PS1}\[${COLOR_YELLOW}\]\h "
-            else
-                PS1="${PS1}\[${COLOR_LIGHTRED}\]\h "
+            if [ -d /proc ]; then
+                local parent_process=`cat /proc/${PPID}/cmdline`
+                if [[ "$parent_process" == "in.rlogind*" ]]; then
+                    PS1="${PS1}\[${COLOR_BROWN}\]\h "
+                elif [[ "$parent_process" == "in.telnetd*" ]]; then 
+                    PS1="${PS1}\[${COLOR_YELLOW}\]\h "
+                else
+                    PS1="${PS1}\[${COLOR_LIGHTRED}\]\h "
+                fi
             fi
         fi
     elif [[ "${SESS_SRC}" == "" ]]; then
@@ -251,8 +253,12 @@ function prompt_workingdir () {
 
 function load_prompt () {
     # Get PIDs
-    local parent_process=$(cat /proc/$PPID/cmdline | cut -d \. -f 1)
-    local my_process=$(cat /proc/$$/cmdline | cut -d \. -f 1)
+    local parent_process=
+    local my_process=
+    if [ -d /proc ]; then
+        parent_process=$(cat /proc/$PPID/cmdline | cut -d \. -f 1)
+        my_process=$(cat /proc/$$/cmdline | cut -d \. -f 1)
+    fi
 
     if  [[ $parent_process == script* ]]; then
         PROMPT_COMMAND=""
