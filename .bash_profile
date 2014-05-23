@@ -6,6 +6,7 @@ export PATH=~/bin:~/adt/sdk/tools:~/adt/sdk/platform-tools:/usr/local/bin:/usr/l
 
 # Setup JAVA_HOME
 export JAVA_HOME=`/usr/libexec/java_home`
+export ANDROID_HOME=~/adt/sdk
 
 alias vi=vim
 alias tmux="TERM=screen-256color-bce tmux"

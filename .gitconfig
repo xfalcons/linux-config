@@ -12,7 +12,7 @@
 
 [diff]
     color = auto
-    external = /home/$USER/bin/git_diff_wrapper
+    external = /Users/$USER/bin/git_diff_wrapper
 
 [pager]
     diff =
@@ -42,3 +42,15 @@
 
 [push]
         default = tracking
+[user]
+	name = 
+	email = 
+[core]
+	excludesfile = /Users/kevin_luo/.gitignore_global
+	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
