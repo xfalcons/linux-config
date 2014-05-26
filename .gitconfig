@@ -9,6 +9,15 @@
     branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
     branchlog = !sh -c \"git log `git oldest-ancestor`..\"
     diverges = !zsh -c 'git rev-list --boundary $1...$2 | grep ^- | cut -c2-'
+    merge = merge --no-ff
+    pull = pull --no-ff
+    oneline = log --pretty=oneline
+    logdate = log --pretty=format:'%ad %h %aN %s';echo
+    la = log --pretty=\"format:%ad %h (%an): %s \" --date=short
+    # lad = log --pretty=format:'[%ad] %h (%an) %s ' --date=short
+    lad = log --pretty=format:'%Cgreen[%ad]%Creset %C(yellow)%h%Creset %C(bold blue)(%an)%Creset %s ' --date=short
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    sh = diff-tree --no-commit-id --name-only -r
 
 [diff]
     color = auto
