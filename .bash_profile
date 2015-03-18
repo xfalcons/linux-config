@@ -10,6 +10,8 @@ export ANDROID_HOME=~/adt/sdk
 
 alias vi=vim
 alias tmux="TERM=screen-256color-bce tmux"
+alias vm='ssh vagrant@127.0.0.1 -p 2222'
+complete -C '/usr/local/bin/aws_completer' aws
 
 # are we an interactive shell?
 if [ "$PS1" ]; then
