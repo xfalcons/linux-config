@@ -19,10 +19,6 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     sh = diff-tree --no-commit-id --name-only -r
 
-[diff]
-    color = auto
-    external = /Users/$USER/bin/git_diff_wrapper
-
 [pager]
     diff =
 
@@ -30,14 +26,23 @@
     diff = auto
     status = auto
     branch = auto
-    ui = auto
 
+[diff]
+    external = /Users/$USER/bin/git_diff_wrapper
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 
 [status]
-    color = auto
+    added = yellow
+    changed = green
+    untracked = cyan
 
 [branch]
-    color = auto
+    current = yellow reverse
+    local = yellow
+    remote = green
 
 [merge]
     tool = araxismerge
@@ -52,8 +57,8 @@
 [push]
         default = tracking
 [user]
-	name = 
-	email = 
+	name = Kevin Luo
+	email = kevin_luo@miiicasa.com
 [core]
 	excludesfile = /Users/kevin_luo/.gitignore_global
 	editor = vim
