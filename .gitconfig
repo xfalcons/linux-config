@@ -28,7 +28,7 @@
     branch = auto
 
 [diff]
-    external = /Users/$USER/bin/git_diff_wrapper
+    external = ~/bin/git_diff_wrapper
     meta = yellow bold
     frag = magenta bold
     old = red bold
@@ -57,8 +57,8 @@
 [push]
         default = tracking
 [user]
-	name = Kevin Luo
-	email = kevin_luo@miiicasa.com
+	name = 
+	email = 
 [core]
 	excludesfile = /Users/kevin_luo/.gitignore_global
 	editor = vim
