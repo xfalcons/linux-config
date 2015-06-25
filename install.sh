@@ -1,5 +1,6 @@
 #!/bin/sh
-CONFIG_HOME=~/.config
+CONFIG_HOME=~/.linux-config
+CONFIG_BACKUP=~/linux-config.bak
 
 warn() {
     echo "$1" >&2
@@ -10,21 +11,25 @@ die() {
     exit 1
 }
 
-[ -e "~/.config" ] && die "~/.config already exists."
+[ -e $CONFIG_HOME ] && die $CONFIG_HOME already exists."
 
+echo "Cloning linux-config..."
 git clone https://github.com/xfalcons/linux-config.git "$CONFIG_HOME"
 
-cd ~
-[ ! -d "bin" ] && mkdir -p bin ]
-ln -s .config/.bash_profile .bash_profile
-ln -s .config/.bashrc .bashrc
-ln -s .config/.tmux.conf .tmux.conf
-ln -s .config/.gitconfig .gitconfig
-ln -s .config/bin/git_diff_wrapper git_diff_wrapper
-ln -s .config/.git-completion .git-completion
+cd $HOME
+[ ! -d "bin" ] && mkdir -p bin
+rm -rf $CONFIG_BACKUP
+mkdir $CONFIG_BACKUP
 
-wget -O - https://raw.github.com/xfalcons/vimrc/master/auto-install.sh | sh
+for i in '.bach_profile' '.bashrc' '.tmux.conf' '.gitconfig' 'git-completion' 'bin/git_diff_wrapper'
+do
+    [ -e $i ] && mv $i $CONFIG_BACKUP/
+    ln -s $CONFIG_HOME/$i $i
+done
 
-echo "Xfalcons configuration file has been installed."
+echo "Install VIM config and plugins..."
+# wget -O - https://raw.github.com/xfalcons/vimrc/master/auto-install.sh | sh
 
-cd "$CONFIG_HOME"
+echo "Linux-Ubuntu configuration file has been installed."
+
+cd $HOME
