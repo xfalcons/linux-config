@@ -11,7 +11,7 @@ die() {
     exit 1
 }
 
-[ -e $CONFIG_HOME ] && die $CONFIG_HOME already exists."
+[ -e $CONFIG_HOME ] && die "$CONFIG_HOME already exists."
 
 echo "Cloning linux-config..."
 git clone https://github.com/xfalcons/linux-config.git "$CONFIG_HOME"
@@ -28,7 +28,10 @@ do
 done
 
 echo "Install VIM config and plugins..."
-# wget -O - https://raw.github.com/xfalcons/vimrc/master/auto-install.sh | sh
+wget -O - https://raw.github.com/xfalcons/vimrc/master/auto-install.sh | sh
+
+echo "Install Fancy git-prompt"
+git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt
 
 echo "Linux-Ubuntu configuration file has been installed."
 
