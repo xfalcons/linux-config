@@ -21,7 +21,7 @@ cd $HOME
 rm -rf $CONFIG_BACKUP
 mkdir $CONFIG_BACKUP
 
-for i in '.profile' '.bashrc' '.tmux.conf' '.gitconfig' 'git-completion' 'bin/git_diff_wrapper'
+for i in '.profile' '.bashrc' '.tmux.conf' '.gitconfig' '.git-completion' 'bin/git_diff_wrapper'
 do
     [ -e $i ] && mv $i $CONFIG_BACKUP/
     ln -s $CONFIG_HOME/$i $i
