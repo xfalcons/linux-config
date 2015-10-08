@@ -28,7 +28,7 @@ do
 done
 
 echo "Install VIM config and plugins..."
-wget -O - https://raw.github.com/xfalcons/vimrc/master/auto-install.sh | sh
+wget -O - https://raw.githubusercontent.com/xfalcons/vimrc/master/auto-install.sh | sh
 
 echo "Install Fancy git-prompt"
 git clone https://github.com/xfalcons/bash-git-prompt.git .bash-git-prompt
